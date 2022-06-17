@@ -14,7 +14,11 @@ const Container = styled.div`
     width: 158px;
     margin: 0 auto;
   }
+  > h1 {
+    font-size: 24px;
+  }
   > p {
+    font-size: 11px;
     margin: 0;
     margin-bottom: 5px;
   }
@@ -26,6 +30,7 @@ const OrderDetails = styled.div`
   padding: 20px 70px;
   text-align: left;
   > p {
+    font-size: 11px;
     margin: 0;
     margin-bottom: 5px;
   }
@@ -54,15 +59,12 @@ const OrderSuccess: FunctionComponent<{ onClose: () => void }> = ({ onClose }) =
         <h1>Thank you for Purchasing!</h1>
         <img src={PaymentSuccessGif} />
         <OrderDetails>
-          <p>Order from: <strong>MCGI Free Store Cavite - Bulihan Branch</strong></p>
+          <p>Order from: <strong>TrolleyFy</strong></p>
           <p>Order number: <strong>#{orderId}</strong></p>
           <p>Order qty: <strong>{totalQty}</strong></p>
           <p>Order amount: <strong>{totalAmt} Php</strong></p>
-          <p>Amount paid: <strong>{paidAmt} Php</strong></p>
-          <p>Change: <strong>{change} Php</strong></p>
+          <p>Amount to pay: <strong>{paidAmt} Php</strong></p>
         </OrderDetails>
-        <p><strong>神に感謝します</strong></p>
-        <p>感谢上帝 | <strong>하나님 께 감사합니다</strong> | terima kasih Tuhan</p>
       </Container>
       <ActionContainer>
         <ActionButton layout="fill" onClick={handleOk}>OK</ActionButton>
