@@ -40,7 +40,6 @@ const ActionContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 25px;
 `;
 
 
