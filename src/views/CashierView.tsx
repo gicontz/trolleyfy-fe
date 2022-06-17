@@ -130,11 +130,6 @@ const CashierView: FunctionComponent = () => {
     }, [store.toastInfo]);
 
     const handlePayment = (o: TCreateOrderData) => (p: number) => {
-      createOrder({...o, paidAmt: p }, { cashier: dispatch, toast: store.toastDispatcher });
-      closeDialog();
-      setTimeout(() => openDialog({
-        children: <OrderSuccess onClose={closeDialog} />
-      }), 1000);
     }
 
     const handleCreateOrder = () => {
@@ -142,10 +137,15 @@ const CashierView: FunctionComponent = () => {
         items: pItemsRef.current.map(({ pqty, itemId }) => ({ itemId, qty: pqty })),
         paidAmt: 0,
       }
+      createOrder({...order, paidAmt: totalPrice }, { cashier: dispatch, toast: store.toastDispatcher });
+      closeDialog();
+      setTimeout(() => openDialog({
+        children: <OrderSuccess onClose={closeDialog} />
+      }), 1000);
 
-      openDialog({
-        children: <Payment onPayment={handlePayment(order)} onClose={closeDialog} />
-      });
+      // openDialog({
+      //   children: <Payment onPayment={handlePayment(order)} onClose={closeDialog} />
+      // });
 
     };
 

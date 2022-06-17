@@ -51,7 +51,7 @@ const OrderSuccess: FunctionComponent<{ onClose: () => void }> = ({ onClose }) =
   return (
     <DialogContainer title="Order Details">
       <Container>
-        <h1>Thanks be to God!</h1>
+        <h1>Thank you for Purchasing!</h1>
         <img src={PaymentSuccessGif} />
         <OrderDetails>
           <p>Order from: <strong>MCGI Free Store Cavite - Bulihan Branch</strong></p>
@@ -61,7 +61,7 @@ const OrderSuccess: FunctionComponent<{ onClose: () => void }> = ({ onClose }) =
           <p>Amount paid: <strong>{paidAmt} Php</strong></p>
           <p>Change: <strong>{change} Php</strong></p>
         </OrderDetails>
-        <p><strong>Salamat sa Dios</strong> | Thanks be to God | <strong>神に感謝します</strong></p>
+        <p><strong>神に感謝します</strong></p>
         <p>感谢上帝 | <strong>하나님 께 감사합니다</strong> | terima kasih Tuhan</p>
       </Container>
       <ActionContainer>
