@@ -63,16 +63,16 @@ const InventoryTable: FunctionComponent = () => {
                       {order.createdAt}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {order.totalAmt} pts
+                      {order.totalAmt} Php
                     </TableCell>
                     <TableCell component="th" scope="row">
                       {order.totalQty}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {order.paidAmt} pts
+                      {order.paidAmt} Php
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {order.change} pts
+                      {order.change} Php
                     </TableCell>
                   </TableRow>
                 )

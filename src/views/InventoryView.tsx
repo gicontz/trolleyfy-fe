@@ -171,7 +171,7 @@ const InventoryView: FunctionComponent = () => {
                       {item.description}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {item.price} pts
+                      {item.price} Php
                     </TableCell>
                     <TableCell component="th" scope="row">
                       {item.qty}

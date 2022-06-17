@@ -70,7 +70,7 @@ const InventoryTable: FunctionComponent = () => {
                       {item.name}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {item.price} pts
+                      {item.price} Php
                     </TableCell>
                     <TableCell component="th" scope="row">
                       {item.qty}

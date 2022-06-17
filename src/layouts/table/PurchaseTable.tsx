@@ -49,7 +49,7 @@ const PurchaseTable: FunctionComponent = () => {
                       {item.pqty}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {item.amt} pts
+                      {item.amt} Php
                     </TableCell>
                   </TableRow>
                 )

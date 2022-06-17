@@ -159,7 +159,7 @@ const CashierView: FunctionComponent = () => {
       <Container>
         <RightSection>
           <div className="totalPricing">
-            <h2><span>Total:</span> <span>{totalPrice} pts</span></h2>
+            <h2><span>Total:</span> <span>{totalPrice} Php</span></h2>
           </div>
           <div className="purchaseTable">
             <PurchaseTable />
