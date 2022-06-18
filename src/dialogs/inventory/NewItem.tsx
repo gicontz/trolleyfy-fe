@@ -12,7 +12,7 @@ interface Props {
 }
 
 const DialogContainer = styled(FsDialogContainer)`
-  width: 400px;
+  width: 300px;
 `;
 
 const NewItem: FunctionComponent<Props> = ({onClose}) => {

@@ -74,7 +74,7 @@ export const ActionButton = styled(Button)<{ layout?: ButtonLayout }>`
 export const ActionContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 200px;
   margin-left: auto;
   > button {
     margin-left: 10px;
