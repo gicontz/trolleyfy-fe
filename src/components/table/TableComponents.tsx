@@ -7,6 +7,8 @@ export const TableContainer = styled(MuiTableContainer)`
   max-height: 800px;
   border-radius: 26px;
   background-color: white;
+  max-height: 360px;
+  overflow: auto;
   > table {
     min-height: 37px;
   }
@@ -28,7 +30,7 @@ export const HeaderCell = styled(({...other}) => (
 
 export const TableCell = styled(({...other}) => <MuiTableCell align="center" {...other} />)`
   color: black;
-  font-size: 13px;
+  font-size: 12px !important;
 `;
 
 export const TableRow = styled(MuiTableRow)`

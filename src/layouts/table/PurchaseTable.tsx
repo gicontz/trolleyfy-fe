@@ -14,6 +14,10 @@ const ContentContainer = styled.div`
   width: 100%;
 `;
 
+const StyledTableContainer = styled(TableContainer)`
+  max-height: 275px
+`;
+
 
 const PurchaseTable: FunctionComponent = () => {
   const { cashrStore: store, cashrDispatch: dispatch } = useCashrContext();
@@ -25,7 +29,7 @@ const PurchaseTable: FunctionComponent = () => {
   return (
     <Container>
       <ContentContainer>
-        <TableContainer>
+        <StyledTableContainer>
           <Table stickyHeader>
             <TableHead>
               <TableRow>
@@ -56,7 +60,7 @@ const PurchaseTable: FunctionComponent = () => {
               })}
             </TableBody>
           </Table>
-        </TableContainer>
+        </StyledTableContainer>
       </ContentContainer>
     </Container>
   )

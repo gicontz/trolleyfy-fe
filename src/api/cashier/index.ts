@@ -66,6 +66,7 @@ export const clearPunchedItems = (dispatch: Dispatcher): void => {
   cashier({ type: Actions.CLEAR_PUNCH_ITEMS_ACTION, payload: undefined });
   popToast({message: 'Ready for new Transaction', type: 'info'}, toast);
 };
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const createOrder = async (params: TCreateOrderData, dispatch: Dispatcher): Promise<void> => {
   const { cashier, toast } = dispatch;
@@ -78,7 +79,6 @@ export const createOrder = async (params: TCreateOrderData, dispatch: Dispatcher
     });
 
     const item = data.order;
-
     cashier({ type: Actions.CREATE_ORDER_FULFILLED, payload: item });
     popToast({ message: 'Order created Succesfully', type: 'info' }, toast);
   } catch (e: any) {

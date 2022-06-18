@@ -63,16 +63,16 @@ const InventoryTable: FunctionComponent = () => {
               {filteredItems.map((item, indx) => {
                 return (
                   <TableRow key={indx}>
-                    <TableCell component="th" scope="row" onClick={handleViewUpdate(item.itemId)}>
+                    <TableCell component="td" scope="row" onClick={handleViewUpdate(item.itemId)}>
                       {item.productCode}
                     </TableCell>
-                    <TableCell component="th" scope="row" onClick={handleViewUpdate(item.itemId)}>
+                    <TableCell component="td" scope="row" onClick={handleViewUpdate(item.itemId)}>
                       {item.name}
                     </TableCell>
-                    <TableCell component="th" scope="row">
+                    <TableCell component="td" scope="row">
                       {item.price} Php
                     </TableCell>
-                    <TableCell component="th" scope="row">
+                    <TableCell component="td" scope="row">
                       {item.qty}
                     </TableCell>
                   </TableRow>

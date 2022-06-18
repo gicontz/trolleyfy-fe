@@ -24,7 +24,7 @@ function DialogContainer(props: DialogContainerProps) {
   const { children, open, onClose, onKill, ...others } = props;
 
   return (
-    <Dialog open={open} onClose={onClose} onExited={onKill} {...others}>
+    <Dialog open={open} onClose={onClose} onExited={onKill} disableEscapeKeyDown disableBackdropClick {...others}>
       {children}
     </Dialog>
   );

@@ -61,6 +61,7 @@ export interface CashierState {
   barcode: BarcodeState;
   punchedItems: IItem[];
   purchasedItems: IPurchasedItem[];
+  isPurchasing?: boolean;
   successOrder: Omit<IOrder, 'items'>;
   orderList: WithIsLoading<IOrder[]>;
   toastInfo: ToastState;

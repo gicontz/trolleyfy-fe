@@ -1,54 +1,20 @@
-import { RouteComponentProps } from '@reach/router';
 import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { configure } from 'react-hotkeys';
 import { useHotkeys } from 'react-hotkeys-hook';
 import styled from 'styled-components';
 import { clearPunchedItems, createOrder, punchItem, setBarcode } from '../api/cashier';
 import { TCreateOrderData } from '../api/cashier/types';
 import { popToast } from '../api/toast';
 import { ActionButton, ActionContainer } from '../components/Button';
-import SearchField from '../components/fields/SearchField';
+import LoadingOverlay from '../components/progress/LoadingOverlay';
 import OrderSuccess from '../dialogs/cashier/OrderSuccess';
-import Payment from '../dialogs/cashier/Payment';
 import { ShowShortcut } from '../dialogs/common';
-import InventoryTable from '../layouts/table/InventoryTable';
 import PurchaseTable from '../layouts/table/PurchaseTable';
 import { useCashrContext } from '../providers/cashier';
 import { useDialog } from '../providers/dialog';
 
 const Container = styled.div`
   display: flex;
-`;
-
-const LeftSection = styled.div`
-  display: flex;
-  width: 0; // 20px
-  flex-direction: column;
-  margin-right: 0px;
-  > .inventoryTable {
-    width: 100%;
-  }
-  > .productInfo {
-    width: 100%;
-    > .productName {
-      background-color: #F2F2F2;
-      padding: 8px;
-      border-radius: 4px;
-      font-size: 7px;
-      width: 75%;
-      height: 25px;
-      box-sizing: border-box;
-    }
-    > .productCode {
-      font-size: 8px;
-    }
-    > .description {
-      font-size: 8px
-    }
-    > .price {
-      font-size: 8px;
-    }
-  }
+  position: relative;
 `;
 
 const RightSection = styled.div`
@@ -132,24 +98,19 @@ const CashierView: FunctionComponent = () => {
     const handlePayment = (o: TCreateOrderData) => (p: number) => {
     }
 
-    const handleCreateOrder = () => {
+    const handleCreateOrder = async () => {
       const order = {
         items: pItemsRef.current.map(({ pqty, itemId }) => ({ itemId, qty: pqty })),
         paidAmt: 0,
       }
-      createOrder({...order, paidAmt: totalPrice }, { cashier: dispatch, toast: store.toastDispatcher });
-      closeDialog();
-      setTimeout(() => openDialog({
-        children: <OrderSuccess onClose={closeDialog} />
-      }), 1000);
-
-      // openDialog({
-      //   children: <Payment onPayment={handlePayment(order)} onClose={closeDialog} />
-      // });
-
+      if (pItemsRef.current.length > 0) {
+        await createOrder({...order, paidAmt: totalPrice }, { cashier: dispatch, toast: store.toastDispatcher });
+        closeDialog();
+        openDialog({
+          children: <OrderSuccess onClose={closeDialog} />
+        })
+      }
     };
-
-    useHotkeys('alt+Enter', handleCreateOrder);
 
     const handleReset = () => {
       clearPunchedItems({cashier: dispatch, toast: store.toastDispatcher});
@@ -157,6 +118,7 @@ const CashierView: FunctionComponent = () => {
 
     return (
       <Container>
+        <LoadingOverlay display={store.isPurchasing} />
         <RightSection>
           <div className="totalPricing">
             <h2><span>Total:</span> <span>{totalPrice} Php</span></h2>

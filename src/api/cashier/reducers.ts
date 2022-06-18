@@ -32,10 +32,23 @@ export function cashier(state: CashierState, action: CashierTypes): CashierState
         }
       }
     }
+    case Actions.CREATE_ORDER_START: {
+      return {
+        ...state,
+        isPurchasing: true,
+      }
+    }
     case Actions.CREATE_ORDER_FULFILLED: {
       return {
         ...state,
         successOrder: action.payload,
+        isPurchasing: false,
+      }
+    }
+    case Actions.CREATE_ORDER_REJECTED: {
+      return {
+        ...state,
+        isPurchasing: false,
       }
     }
     case Actions.SET_BARCODE_ACTION: {

@@ -45,7 +45,7 @@ const ActionContainer = styled.div`
 
 const OrderSuccess: FunctionComponent<{ onClose: () => void }> = ({ onClose }) => {
   const { cashrStore: store, cashrDispatch: cashier } = useCashrContext();
-  const { orderId, totalAmt, totalQty, paidAmt, change } = store.successOrder;
+  const { orderId, totalAmt, totalQty } = store.successOrder;
 
   const handleOk = () => {
     onClose();
@@ -62,7 +62,7 @@ const OrderSuccess: FunctionComponent<{ onClose: () => void }> = ({ onClose }) =
           <p>Order number: <strong>#{orderId}</strong></p>
           <p>Order qty: <strong>{totalQty}</strong></p>
           <p>Order amount: <strong>{totalAmt} Php</strong></p>
-          <p>Amount to pay: <strong>{paidAmt} Php</strong></p>
+          <p>Amount to pay: <strong>{totalAmt} Php</strong></p>
         </OrderDetails>
       </Container>
       <ActionContainer>
